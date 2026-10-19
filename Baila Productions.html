@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Baila Productions</title>
+<meta name="description" content="Baila Productions is a game development studio creating unique and enjoyable experiences on Roblox.">
+<meta name="color-scheme" content="dark">
+<style>
+:root{--bg:#000;--card:#1a1a1a;--card2:#242424;--text:#fff;--muted:#bdbdbd;--red:#e0202b;--red-d:#a8141d;--line:#2e2e2e;--r:18px;
+color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--text);font:1rem/1.65 "Trebuchet MS","Segoe UI",system-ui,-apple-system,sans-serif;overflow-x:hidden}
+a{color:inherit}
+img,svg{max-width:100%}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px;border-radius:6px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:rgba(0,0,0,.92);z-index:50}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(0,0,0,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1100px;margin:0 auto;padding:.6rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{font-weight:800;letter-spacing:.02em;text-decoration:none}
+.brand b{color:var(--red)}
+.menu{display:flex;gap:.25rem;list-style:none;margin:0;padding:0}
+.menu a{display:block;padding:.5rem .8rem;border-radius:999px;text-decoration:none;color:var(--muted);font-size:.92rem;transition:color .2s,background .2s}
+.menu a:hover{color:var(--text);background:var(--card)}
+.menu a.active{color:var(--text);background:var(--red-d)}
+.burger{display:none;background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:12px;min-width:44px;min-height:44px;font-size:1.3rem;cursor:pointer}
+.hero{position:relative;width:100%;min-height:clamp(260px,60vw,520px);display:grid;place-items:center;padding:1.5rem 1rem 3.5rem;overflow:hidden;
+background:radial-gradient(ellipse at 50% 35%,#5a0a10 0%,#1b0407 45%,#000 80%)}
+.hero::after{content:"";position:absolute;inset:auto 0 0;height:45%;background:linear-gradient(to bottom,transparent,var(--bg))}
+.hero-in{position:relative;z-index:1;text-align:center;max-width:100%}
+.logo{display:block;margin:0 auto;width:min(80vw,440px);height:auto;aspect-ratio:1;object-fit:contain;mix-blend-mode:lighten;-webkit-mask-image:radial-gradient(circle,#000 62%,transparent 72%);mask-image:radial-gradient(circle,#000 62%,transparent 72%)}
+.logo-ph{width:min(86vw,520px);aspect-ratio:1;display:grid;place-content:center;gap:.4rem;border:2px dashed rgba(255,255,255,.35);border-radius:var(--r);background:rgba(0,0,0,.35)}
+.logo-ph strong{font-size:clamp(1.8rem,6vw,3rem);line-height:1.1;font-weight:900}
+.logo-ph span{color:var(--muted);font-size:.9rem}
+main{max-width:1100px;margin:0 auto;padding:0 1.25rem}
+section{padding:2.5rem 0}
+h2{font-size:clamp(1.6rem,4vw,2.2rem);margin:0 0 1.25rem;line-height:1.2;padding-left:.8rem;border-left:5px solid var(--red)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:clamp(1.25rem,4vw,2.5rem);box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.panel p{margin:0 0 1.1rem;max-width:75ch}
+.panel p:last-child{margin:0}
+.panel h3{margin:0 0 1rem;font-size:1.5rem}
+.tag{color:var(--red);font-weight:700}
+.grid{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 8px 24px rgba(0,0,0,.45)}
+.thumb{aspect-ratio:16/9;background:repeating-linear-gradient(135deg,#222 0 14px,#1a1a1a 14px 28px);display:grid;place-items:center;border-bottom:3px solid var(--red-d)}
+.thumb svg{width:44px;height:44px;opacity:.55}
+.card-b{padding:1.1rem 1.25rem 1.4rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+.card h3{margin:0;font-size:1.15rem}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+.price{color:var(--muted);font-weight:700}
+.btn{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:.6rem 1.2rem;border-radius:999px;border:0;font:inherit;font-weight:700;color:#fff;background:var(--red);cursor:pointer;text-decoration:none;transition:background .2s,transform .2s}
+.btn:hover{background:#f02f3a;transform:translateY(-2px)}
+.btn[disabled]{background:var(--card2);color:var(--muted);border:1px dashed #555;cursor:not-allowed;transform:none}
+.social{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.soc{display:flex;flex-direction:column;gap:.75rem;padding:1.5rem;text-decoration:none;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--red);border-radius:var(--r);box-shadow:0 8px 24px rgba(0,0,0,.45);transition:transform .25s,border-color .25s,box-shadow .25s}
+.soc:hover{transform:translateY(-5px);border-color:var(--red);box-shadow:0 14px 34px rgba(224,32,43,.25)}
+.soc svg{width:44px;height:44px;fill:var(--red)}
+.soc h3{margin:0;font-size:1.3rem}
+.soc p{margin:0;color:var(--muted)}
+.empty{text-align:center;color:var(--muted);padding:2rem 1rem;border:2px dashed var(--line);border-radius:14px;margin:0}
+form{display:grid;gap:1rem}
+.row{display:grid;gap:1rem;grid-template-columns:1fr 1fr}
+label{display:grid;gap:.4rem;font-weight:700;font-size:.95rem}
+input,select,textarea{width:100%;font:inherit;color:var(--text);background:#0e0e0e;border:1px solid #444;border-radius:12px;padding:.8rem 1rem;min-height:46px}
+textarea{min-height:150px;resize:vertical}
+input:focus,select:focus,textarea:focus{border-color:var(--red);outline:2px solid var(--red)}
+.err{color:#ff7b82;font-weight:400;font-size:.88rem;min-height:1.1em}
+.status{margin:0;padding:.9rem 1rem;border-radius:12px;background:var(--card2);border-left:4px solid var(--red)}
+.status:empty{display:none}
+.direct{margin-top:1.25rem;color:var(--muted)}
+.direct a{color:#fff;font-weight:700}
+footer{text-align:center;color:var(--muted);padding:2rem 1rem 3rem;font-size:.9rem}
+@media (max-width:1023px){.social{gap:1rem}}
+@media (max-width:767px){
+.burger{display:block}
+.menu{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;background:#000;border-bottom:1px solid var(--line);padding:.5rem 1rem 1rem}
+.menu.open{display:flex}
+.menu a{padding:.8rem 1rem;min-height:44px}
+.social,.row{grid-template-columns:1fr}
+section{padding:1.75rem 0}
+main{padding:0 1rem}
+.grid{grid-template-columns:1fr}
+}
+@media (min-width:768px) and (max-width:1023px){.grid{grid-template-columns:repeat(2,1fr)}.social{grid-template-columns:1fr;max-width:560px;margin:0 auto}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+<style>
+/* Motion + polish layer */
+@keyframes rise{from{opacity:0;transform:translateY(30px) scale(.94)}}
+@keyframes float{50%{transform:translateY(-14px)}}
+@keyframes drift{from{transform:translate(-8%,-6%) scale(1)}to{transform:translate(8%,6%) scale(1.15)}}
+@keyframes gridmove{to{background-position:48px 48px,48px 48px}}
+@keyframes shine{from{background-position:100% 0}to{background-position:0 0}}
+@keyframes marq{to{transform:translateX(-50%)}}
+@keyframes sweep{to{transform:translateX(100%)}}
+@keyframes sweepbg{to{background-position:-200% 0}}
+@keyframes bob{50%{transform:translateY(-6px) scale(1.06)}}
+@keyframes shake{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+@keyframes pop{from{opacity:0;transform:translateY(8px)}}
+.progress{position:absolute;left:0;bottom:-1px;height:3px;width:100%;background:linear-gradient(90deg,var(--red-d),var(--red),#ff7a82);transform:scaleX(0);transform-origin:left}
+.hero{background:#000;min-height:min(92vh,760px);padding:3rem 1rem 6rem}
+.gridbg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse at center,#000 15%,transparent 70%);mask-image:radial-gradient(ellipse at center,#000 15%,transparent 70%);animation:gridmove 6s linear infinite}
+.orb{position:absolute;border-radius:50%;filter:blur(40px);pointer-events:none;translate:-50% -50%}
+.o1{width:min(80vw,560px);aspect-ratio:1;left:50%;top:38%;background:radial-gradient(circle,rgba(224,32,43,.6),transparent 65%);animation:drift 8s ease-in-out infinite alternate}
+.o2{width:min(50vw,320px);aspect-ratio:1;left:78%;top:70%;background:radial-gradient(circle,rgba(150,12,20,.55),transparent 65%);animation:drift 11s ease-in-out infinite alternate-reverse}
+.hero-in{transform:translate3d(var(--px,0px),var(--py,0px),0);transition:transform .35s ease-out}
+.hero-in>*{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.hero-in>:nth-child(3){animation-delay:.3s}.hero-in>:nth-child(4){animation-delay:.45s}
+.hero-in>.logo{width:min(58vw,320px);animation:rise 1s cubic-bezier(.2,.8,.2,1) both,float 6s 1s ease-in-out infinite}
+.hero-in>.wordmark{margin:.4rem 0 0;font-size:clamp(2.1rem,8vw,4rem);line-height:1.05;font-weight:900;letter-spacing:-.02em;background:linear-gradient(100deg,#fff 40%,#ff6a72 50%,#fff 60%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:rise .9s .15s cubic-bezier(.2,.8,.2,1) both,shine 6s 1.2s linear infinite}
+.lead{color:var(--muted);margin:.5rem 0 1.6rem;font-size:clamp(1rem,2.6vw,1.2rem)}
+.cta{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+.cta .btn{margin:0}
+.btn{position:relative;overflow:hidden}
+.btn::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%)}
+.btn:not([disabled]):hover::after{transform:translateX(120%);transition:transform .7s}
+.btn.ghost{background:transparent;box-shadow:inset 0 0 0 2px var(--red)}
+.btn.ghost:hover{background:var(--red)}
+.marquee{position:relative;z-index:2;overflow:hidden;background:var(--red);transform:rotate(-1.5deg);margin:-2.2rem -3% 0;padding:.75rem 0;box-shadow:0 0 40px rgba(224,32,43,.45)}
+.track{display:flex;width:max-content;animation:marq 45s linear infinite}
+.track span{padding:0 2rem;font-weight:800;white-space:nowrap}
+.track span::after{content:"";display:inline-block;width:.5rem;height:.5rem;background:#fff;transform:rotate(45deg);margin-left:4rem}
+main{padding-top:1.5rem}
+h2{border-left:0;padding-left:1rem;position:relative}
+h2::before{content:"";position:absolute;left:0;top:.1em;bottom:.1em;width:5px;border-radius:3px;background:var(--red);transform:scaleY(0);transform-origin:top;transition:transform .7s .25s}
+h2.in::before,html:not(.js) h2::before{transform:none}
+.panel{position:relative;overflow:hidden}
+.panel::after{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,transparent,var(--red),transparent);background-size:200% 100%;animation:sweepbg 4s linear infinite}
+.card,.soc{position:relative;transition:transform .25s ease,box-shadow .25s,border-color .25s}
+.card,.soc,.card:hover,.soc:hover{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--ty,0px))}
+.card:hover,.soc:hover{--ty:-6px;border-color:var(--red);box-shadow:0 16px 36px rgba(224,32,43,.25)}
+.card::before,.soc::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:1;opacity:0;transition:opacity .3s;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(224,32,43,.24),transparent 70%)}
+.card:hover::before,.soc:hover::before{opacity:1}
+.thumb{position:relative;overflow:hidden}
+.thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.1) 50%,transparent 70%);transform:translateX(-100%);animation:sweep 2.8s ease-in-out infinite}
+.thumb svg{animation:bob 3s ease-in-out infinite}
+.soc svg{transition:transform .3s}
+.soc:hover svg{transform:scale(1.15) rotate(-6deg)}
+.js .rv{opacity:0;transform:translateY(28px) scale(.98);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+input:focus,select:focus,textarea:focus{box-shadow:0 0 0 4px rgba(224,32,43,.25)}
+input,select,textarea{transition:border-color .2s,box-shadow .2s}
+form.shake{animation:shake .4s}
+.grid{display:flex;flex-wrap:wrap;justify-content:center}
+.grid>.card{flex:1 1 250px;max-width:calc((100% - 2.5rem)/3)}
+@media (max-width:1023px){.grid>.card{max-width:calc((100% - 1.25rem)/2)}}
+@media (max-width:767px){.grid>.card{max-width:100%}}
+.status{animation:pop .4s}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav aria-label="Main">
+<div class="progress" id="prog"></div>
+<div class="nav-in">
+<a class="brand" href="#home">Baila <b>Productions</b></a>
+<button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">&#9776;</button>
+<ul class="menu" id="menu">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#games">Our Games</a></li>
+<li><a href="#gamepasses">Gamepasses</a></li>
+<li><a href="#community">Community</a></li>
+<li><a href="#updates">Updates &amp; Reports</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</nav>
+
+<header class="hero" id="home">
+<span class="gridbg" aria-hidden="true"></span><span class="orb o1" aria-hidden="true"></span><span class="orb o2" aria-hidden="true"></span>
+<div class="hero-in">
+<img class="logo" src="data:image/webp;base64,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" width="640" height="640" alt="Baila Productions logo: a red cube with the letters B and P">
+<h1 class="wordmark">Baila Productions</h1>
+<p class="lead">Built with passion, shared with everyone.</p>
+<div class="cta"><a class="btn" href="#games">Our Games</a><a class="btn ghost" href="https://discord.gg/5JE3jxd2w" target="_blank" rel="noopener noreferrer">Join our Discord</a></div>
+</div>
+</header>
+<div class="marquee" aria-hidden="true"><div class="track" id="track"></div></div>
+
+<main>
+<section id="about">
+<div class="panel">
+<h3>Baila Productions</h3>
+<p>Baila Productions is a game development studio creating unique and enjoyable experiences on Roblox. We believe that great games start with creative ideas, a passion for building, and the desire to bring people together.</p>
+<p>Our goal is to create games that players can enjoy, share with friends, and keep coming back to. We’re always exploring new ideas, learning along the way, and working to make each project better than the last.</p>
+<p>As we continue to grow, we hope to build a community that shares our passion for games and creativity. We’re excited for what’s ahead and grateful to everyone who becomes part of our journey.</p>
+<p class="tag">Baila Productions — Built with passion, shared with everyone.</p>
+</div>
+</section>
+
+<section id="games" aria-labelledby="games-h">
+<h2 id="games-h">Our Games</h2>
+<!-- To add a game: replace the .thumb contents with <img>, edit the title and text, and turn the button into <a class="btn" href="ROBLOX_LINK"> -->
+<div class="grid">
+<article class="card"><div class="thumb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff"><path d="M6 9h12a4 4 0 0 1 4 4v2a3 3 0 0 1-5.2 2L15 15H9l-1.800 2A3 3 0 0 1 2 15v-2a4 4 0 0 1 4-4zm1 2v1H6v1h1v1h1v-1h1v-1H8v-1zm9 .5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg></div><div class="card-b"><h3>Coming Soon</h3><p>We’re working on something new. Stay tuned!</p><button class="btn" disabled>Coming Soon</button></div></article>
+<article class="card"><div class="thumb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff"><path d="M6 9h12a4 4 0 0 1 4 4v2a3 3 0 0 1-5.2 2L15 15H9l-1.800 2A3 3 0 0 1 2 15v-2a4 4 0 0 1 4-4zm1 2v1H6v1h1v1h1v-1h1v-1H8v-1zm9 .5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg></div><div class="card-b"><h3>Coming Soon</h3><p>We’re working on something new. Stay tuned!</p><button class="btn" disabled>Coming Soon</button></div></article>
+<article class="card"><div class="thumb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff"><path d="M6 9h12a4 4 0 0 1 4 4v2a3 3 0 0 1-5.2 2L15 15H9l-1.800 2A3 3 0 0 1 2 15v-2a4 4 0 0 1 4-4zm1 2v1H6v1h1v1h1v-1h1v-1H8v-1zm9 .5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg></div><div class="card-b"><h3>Coming Soon</h3><p>We’re working on something new. Stay tuned!</p><button class="btn" disabled>Coming Soon</button></div></article>
+</div>
+</section>
+
+<section id="gamepasses" aria-labelledby="gp-h">
+<h2 id="gp-h">Gamepasses</h2>
+<!-- To add a gamepass: edit name, description and price, and swap the button for <a class="btn" href="PURCHASE_LINK">Buy</a> -->
+<div class="grid">
+<article class="card"><div class="thumb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2l2.900 6.300 6.800.7-5.100 4.600 1.500 6.800L12 17l-6.100 3.400 1.500-6.800L2.300 9l6.800-.7z"/></svg></div><div class="card-b"><h3>Coming Soon</h3><p>Gamepasses will be available once our games launch.</p><span class="price">Price: Coming Soon</span><button class="btn" disabled>Coming Soon</button></div></article>
+<article class="card"><div class="thumb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2l2.900 6.300 6.800.7-5.100 4.600 1.500 6.800L12 17l-6.100 3.400 1.500-6.800L2.300 9l6.800-.7z"/></svg></div><div class="card-b"><h3>Coming Soon</h3><p>Gamepasses will be available once our games launch.</p><span class="price">Price: Coming Soon</span><button class="btn" disabled>Coming Soon</button></div></article>
+<article class="card"><div class="thumb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2l2.900 6.300 6.800.7-5.100 4.600 1.500 6.800L12 17l-6.100 3.400 1.500-6.800L2.300 9l6.800-.7z"/></svg></div><div class="card-b"><h3>Coming Soon</h3><p>Gamepasses will be available once our games launch.</p><span class="price">Price: Coming Soon</span><button class="btn" disabled>Coming Soon</button></div></article>
+</div>
+</section>
+
+<section id="community" aria-labelledby="com-h">
+<h2 id="com-h">Join Our Community</h2>
+<div class="social">
+<a class="soc" href="https://www.youtube.com/@BailaProductions-y9o" target="_blank" rel="noopener noreferrer">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.200a3 3 0 0 0-2.100-2.100C19 4.600 12 4.600 12 4.600s-7 0-8.900.5A3 3 0 0 0 1 7.200C.5 9.100.5 12 .5 12s0 2.900.5 4.800a3 3 0 0 0 2.100 2.100c1.900.5 8.900.5 8.900.5s7 0 8.900-.5a3 3 0 0 0 2.100-2.100c.5-1.900.5-4.800.5-4.800s0-2.900-.5-4.800zM9.800 15.300V8.700l5.700 3.300z"/></svg>
+<h3>YouTube</h3><p>Official trailers, devlogs, and exclusive gameplay. Subscribe now! 🎬</p></a>
+<a class="soc" href="https://www.tiktok.com/@bailaproductions0" target="_blank" rel="noopener noreferrer">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.600 2h-3.200v13.200a2.700 2.700 0 1 1-2.700-2.700c.3 0 .6 0 .8.100V9.300a6 6 0 1 0 5.100 5.900V8.600a7.500 7.500 0 0 0 4.400 1.400V6.800a4.400 4.400 0 0 1-4.400-4.800z"/></svg>
+<h3>TikTok</h3><p>Behind-the-scenes, game teasers, and epic gameplay moments. Follow us! ⚡</p></a>
+<a class="soc" href="https://discord.gg/5JE3jxd2w" target="_blank" rel="noopener noreferrer">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.300 4.400A19 19 0 0 0 15.700 3l-.6 1.300a17 17 0 0 0-6.200 0L8.300 3a19 19 0 0 0-4.600 1.400C.800 8.700 0 13 .4 17.200A19 19 0 0 0 6 20l1.200-1.900a12 12 0 0 1-1.900-.9l.5-.4a13.500 13.500 0 0 0 12.400 0l.5.400c-.6.400-1.300.7-1.900.9L18 20a19 19 0 0 0 5.600-2.800c.5-4.900-.8-9.100-3.300-12.800zM8.500 14.600c-1 0-1.800-.9-1.800-2s.8-2 1.800-2 1.800.9 1.800 2-.8 2-1.800 2zm7 0c-1 0-1.800-.9-1.800-2s.8-2 1.800-2 1.800.9 1.800 2-.8 2-1.800 2z"/></svg>
+<h3>Discord</h3><p>Join our official community! Chat with developers, give feedback, and get early access. 🎮</p></a>
+</div>
+</section>
+
+<section id="updates" aria-labelledby="up-h">
+<h2 id="up-h">Updates &amp; Reports</h2>
+<div class="panel">
+<!-- Add new entries above the placeholder as <article> elements with a date, title and text -->
+<p class="empty">Updates and announcements will appear here soon.</p>
+</div>
+</section>
+
+<section id="contact" aria-labelledby="ct-h">
+<h2 id="ct-h">Get in Touch</h2>
+<div class="panel">
+<p>Report a bug, suggest an improvement, ask a question, or talk about a collaboration.</p>
+<form id="form" novalidate>
+<div class="row">
+<label>Name<input id="name" name="name" autocomplete="name" required aria-describedby="e-name"><span class="err" id="e-name"></span></label>
+<label>Email<input id="email" name="email" type="email" autocomplete="email" required aria-describedby="e-email"><span class="err" id="e-email"></span></label>
+</div>
+<label>Subject
+<select id="subject" name="subject" required aria-describedby="e-subject">
+<option value="">Choose a subject</option>
+<option>Bug Report</option><option>Suggestion</option><option>General Question</option><option>Other</option>
+</select><span class="err" id="e-subject"></span></label>
+<label>Message<textarea id="message" name="message" required aria-describedby="e-message"></textarea><span class="err" id="e-message"></span></label>
+<button class="btn" type="submit">Send Message</button>
+<p class="status" id="status" role="status" aria-live="polite"></p>
+</form>
+<p class="direct">Prefer email? Write to <a href="mailto:bailaproductions2018@gmail.com">bailaproductions2018@gmail.com</a>.</p>
+</div>
+</section>
+</main>
+
+<footer>Baila Productions — Built with passion, shared with everyone.</footer>
+
+<script>
+(function(){
+var burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',function(){var o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+menu.addEventListener('click',function(e){if(e.target.tagName==='A'){menu.classList.remove('open');burger.setAttribute('aria-expanded','false')}});
+
+var links=[].slice.call(menu.querySelectorAll('a'));
+var ids=links.map(function(a){return a.getAttribute('href').slice(1)});
+function spy(){
+var y=window.scrollY+120,cur=ids[0];
+ids.forEach(function(id){var el=document.getElementById(id);if(el&&el.offsetTop<=y)cur=id});
+if(window.innerHeight+window.scrollY>=document.body.scrollHeight-4)cur=ids[ids.length-1];
+links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+cur)});
+}
+window.addEventListener('scroll',spy,{passive:true});spy();
+
+var TO='bailaproductions2018@gmail.com';
+var f=document.getElementById('form'),st=document.getElementById('status');
+function setErr(id,msg){document.getElementById('e-'+id).textContent=msg;return !msg}
+f.addEventListener('submit',function(e){
+e.preventDefault();
+var n=f.name.value.trim(),em=f.email.value.trim(),s=f.subject.value,m=f.message.value.trim();
+var ok=true;
+ok=setErr('name',n?'':'Enter your name.')&&ok;
+ok=setErr('email',!em?'Enter your email address.':(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)?'':'Enter a valid email address, like name@example.com.'))&&ok;
+ok=setErr('subject',s?'':'Choose a subject.')&&ok;
+ok=setErr('message',m?'':'Enter your message.')&&ok;
+if(!ok){st.textContent='Please fix the highlighted fields and try again.';var bad=f.querySelector('.err:not(:empty)');if(bad)bad.previousElementSibling.focus();return}
+var body='Name: '+n+'\nEmail: '+em+'\n\n'+m;
+st.textContent='Your email app should now open with your message ready. Press Send in your email app to deliver it. If nothing opened, email us directly at '+TO+'.';
+window.location.href='mailto:'+TO+'?subject='+encodeURIComponent('['+s+'] from '+n)+'&body='+encodeURIComponent(body);
+});
+})();
+</script>
+<script>
+(function(){
+var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var tr=document.getElementById('track');
+if(tr)tr.innerHTML=Array(21).join('<span>Built with passion, shared with everyone.</span>');
+var pg=document.getElementById('prog');
+function prog(){var h=document.body.scrollHeight-innerHeight;pg.style.transform='scaleX('+(h>0?Math.min(scrollY/h,1):0)+')'}
+addEventListener('scroll',prog,{passive:true});prog();
+if(!rm&&'IntersectionObserver' in window){
+document.documentElement.classList.add('js');
+var io=new IntersectionObserver(function(es){es.forEach(function(e){
+if(!e.isIntersecting)return;var el=e.target;io.unobserve(el);el.classList.add('in');
+if(el.matches('.card,.soc'))setTimeout(function(){el.classList.remove('rv','in')},1700);
+})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('h2,.panel,.card,.soc').forEach(function(el){
+var i=[].indexOf.call(el.parentNode.children,el);
+el.style.setProperty('--d',Math.min(i,5)*.09+'s');el.classList.add('rv');io.observe(el);
+});
+}
+if(!rm&&matchMedia('(hover:hover)').matches){
+document.querySelectorAll('.card,.soc').forEach(function(c){
+c.addEventListener('pointermove',function(e){
+var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%');
+c.style.setProperty('--rx',(.5-y)*8+'deg');c.style.setProperty('--ry',(x-.5)*8+'deg');
+});
+c.addEventListener('pointerleave',function(){c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg')});
+});
+var h=document.querySelector('.hero'),w=document.querySelector('.hero-in');
+h.addEventListener('pointermove',function(e){
+var r=h.getBoundingClientRect();
+w.style.setProperty('--px',((e.clientX-r.left)/r.width-.5)*24+'px');
+w.style.setProperty('--py',((e.clientY-r.top)/r.height-.5)*18+'px');
+});
+}
+var f=document.getElementById('form');
+f.addEventListener('submit',function(){
+if(f.querySelector('.err:not(:empty)')){f.classList.remove('shake');void f.offsetWidth;f.classList.add('shake')}
+});
+})();
+</script>
+</body>
+</html>
